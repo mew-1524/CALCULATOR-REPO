@@ -8,26 +8,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '16'
 
-      - name: Install Cordova
-        run: |
-          npm install -g cordova
+      - name: Install Dependencies
+        run: npm install -g cordova
 
-      - name: Build Android APK
+      - name: Build APK
         run: |
-          cd calculator-app
+          cordova create app
+          cd app
           cordova platform add android
-          cordova build android --debug
+          cordova build android --release
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: calculator-apk
-          path: calculator-app/platforms/android/app/build/outputs/apk/debug/*.apk
+          name: app-release
+          path: app/platforms/android/app/build/outputs/apk/release/app-release.apk
+

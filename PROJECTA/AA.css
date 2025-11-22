@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: 0.4s;
+    background: #0d0d0d;
+}
+
+/* Light Mode */
+body.light {
+    background: #e6e6e6;
+}
+
+/* Calculator UI */
+.calculator {
+    width: 330px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 25px #00eaff;
+    transition: 0.4s;
+}
+
+body.light .calculator {
+    background: white;
+    box-shadow: 0 0 25px #ff9100;
+}
+
+#display {
+    width: 100%;
+    height: 65px;
+    border: none;
+    margin-bottom: 15px;
+    font-size: 32px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: right;
+    outline: none;
+    background: black;
+    color: #00eaff;
+    box-shadow: inset 0 0 20px #00eaff;
+}
+
+body.light #display {
+    background: #fff4e0;
+    color: #ff9100;
+    box-shadow: inset 0 0 20px #ff9100;
+}
+
+/* Buttons */
+.buttons button {
+    width: 70px;
+    height: 55px;
+    margin: 6px;
+    border: none;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.25s;
+    background: #141414;
+    color: white;
+    box-shadow: 0 0 12px #00eaff;
+}
+
+body.light .buttons button {
+    background: #ffd89a;
+    color: black;
+    box-shadow: 0 0 12px #ff9100;
+}
+
+.buttons button:hover {
+    transform: scale(1.07);
+}
+
+.equal {
+    background: #00eaff;
+    color: black;
+    font-weight: bold;
+}
+
+body.light .equal {
+    background: #ff9100;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#modeText {
+    font-size: 18px;
+    color: white;
+}
+
+body.light #modeText {
+    color: black;
+}
+
+/* Switch UI */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 28px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 34px;
+    background: #555;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background: #00eaff;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
